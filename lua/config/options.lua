@@ -6,4 +6,4 @@ local opt = vim.opt
 
 opt.relativenumber = false
 
-vim.g.python3_host_prog = "$HOME/.virtualenvs/neovim313/bin/python"
+vim.g.python3_host_prog = "$HOME/.virtualenvs/neovim314/bin/python"
