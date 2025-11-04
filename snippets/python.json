@@ -1,0 +1,12 @@
+{
+    "Multiline string": {
+        "prefix": "docstring",
+        "body": ["\"\"\"$0", "\"\"\""],
+        "description": "Snippet to avoid autopair plugin annoyances when typing multiple \""
+    },
+    "One-line multiline string": {
+        "prefix": "docstring2",
+        "body": "\"\"\"$0\"\"\"",
+        "description": "Snippet to avoid autopair plugin annoyances when typing multiple \""
+    }
+}
