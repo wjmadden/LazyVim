@@ -1,11 +1,11 @@
 {
     "Multiline string": {
-        "prefix": "docstring",
+        "prefix": "mldocstring",
         "body": ["\"\"\"$0", "\"\"\""],
         "description": "Snippet to avoid autopair plugin annoyances when typing multiple \""
     },
     "One-line multiline string": {
-        "prefix": "docstring2",
+        "prefix": "sldocstring",
         "body": "\"\"\"$0\"\"\"",
         "description": "Snippet to avoid autopair plugin annoyances when typing multiple \""
     }
