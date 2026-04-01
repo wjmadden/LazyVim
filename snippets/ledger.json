@@ -2,12 +2,12 @@
     "Fidelity Monthly": {
         "prefix": "fdetm",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} * (Direct Debit) Destiny II",
-                 "  assets:investments:Fidelity_Warren_Roth_IRA:$1$2$3  ${4:shares} FDETX @@ 166.66",
-                 "  assets:banking:Wells_Fargo_Checking      -166.66",
+                 "${1:year}-${2:month}-${3:day}   (Direct Debit) Destiny II",
+                 "  assets:investments:Fidelity_Warren_Roth_IRA  166.66",
+                 "  assets:banking:Wells_Fargo_Checking         -166.66",
                  "$0"
                 ],
-        "description": "Enter a statement for Fidelity Roth IRA monthly investment"
+        "description": "Enter a withdrawal for Fidelity Roth IRA monthly investment"
     },
     "Fidelity add shares": {
         "prefix": ":fdetx",
@@ -19,8 +19,8 @@
         "prefix": "fdetr",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   Fidelity ${4:type} investment",
-                 "  assets:investments:Fidelity_Warren_Roth_IRA:$1$2$3  ${5:shares} FDETX @@ ${6:price}",
-                 "  income:investment_gains:Fidelity_Warren_Roth_IRA",
+                 "  assets:investments:Fidelity_Warren_Roth_IRA:$1$2$3  ${5:shares} FDETX @@ ${6:amount}",
+                 "  income:investments:Fidelity_Warren_Roth_IRA:investment_gains",
                  "$0"
                 ],
         "description": "Enter a statement for Fidelity Roth IRA reinvestment"
@@ -39,14 +39,25 @@
                 ],
         "description": "Enter a new price for Fidelity Roth IRA"
     },
+    "First Command Joint Monthly": {
+        "prefix": "fdetm",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}   (Direct Debit) First Command Joint",
+                 "  assets:investments:First_Command_Joint:holdings       350.00",
+                 "  assets:banking:Wells_Fargo_Checking                  -350.00",
+                 "$0"
+                ],
+        "description": "Enter a withdrawal for First Command Joint monthly investment"
+    },
     "First Command Joint": {
         "prefix": "fcj",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   First Command Joint statement",
-                 "  assets:investments:First_Command_Joint",
-                 "  income:investment_gains:First_Command_Joint  -${4:dividends}  ; dividends interest",
-                 "  expenses:fees:investment                      ${5:fees}",
-                 "  income:unrealized_gains                       ${6:mktchg}  ; type:unrealize",
+                 "  assets:investments:First_Command_Joint:holdings",
+                 "  assets:investments:First_Command_Joint:fees              -${4:fees}",
+                 "  expenses:investments:First_Command_Joint:fees             $4",
+                 "  income:investments:First_Command_Joint:investment_gains  -${5:dividends}  ; dividends interest",
+                 "  income:investments:First_Command_Joint:unrealized_gains  -${6:mktchg}  ; type:unrealize",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Joint IRA"
@@ -55,9 +66,9 @@
         "prefix": "fcjnf",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   First Command Joint statement",
-                 "  assets:investments:First_Command_Joint",
-                 "  income:investment_gains:First_Command_Joint  -${4:dividends}  ; dividends interest",
-                 "  income:unrealized_gains                       ${5:mktchg}  ; type:unrealize",
+                 "  assets:investments:First_Command_Joint:holdings",
+                 "  income:investments:First_Command_Joint:investment_gains  -${4:dividends}  ; dividends interest",
+                 "  income:investments:First_Command_Joint:unrealized_gains  -${5:mktchg}  ; type:unrealize",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Joint IRA without fees"
@@ -66,10 +77,11 @@
         "prefix": "fcw",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   First Command Warren IRA statement",
-                 "  assets:investments:First_Command_Warren_IRA",
-                 "  income:investment_gains:First_Command_Joint  -${4:dividends}  ; dividends interest",
-                 "  expenses:fees:investment                      ${5:fees}",
-                 "  income:unrealized_gains                       ${6:mktchg}  ; type:unrealize",
+                 "  assets:investments:First_Command_Warren_IRA:holdings",
+                 "  assets:investments:First_Command_Warren_IRA:fees              -${4:fees}",
+                 "  expenses:investments:First_Command_Warren_IRA:fees             $4",
+                 "  income:investments:First_Command_Warren_IRA:investment_gains  -${5:dividends}  ; dividends interest",
+                 "  income:investments:First_Command_Warren_IRA:unrealized_gains  -${6:mktchg}  ; type:unrealize",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Warren IRA"
@@ -78,9 +90,9 @@
         "prefix": "fcwnf",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   First Command Warren IRA statement",
-                 "  assets:investments:First_Command_Warren_IRA",
-                 "  income:investment_gains:First_Command_Joint  ${4:dividends}  ; dividends interest",
-                 "  income:unrealized_gains                      ${5:mktchg}  ; type:unrealize",
+                 "  assets:investments:First_Command_Warren_IRA:holdings",
+                 "  income:investments:First_Command_Warren_IRA:investment_gains  -${4:dividends}  ; dividends interest",
+                 "  income:investments:First_Command_Warren_IRA:unrealized_gains  -${5:mktchg}  ; type:unrealize",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Warren IRA without fees"
@@ -89,10 +101,11 @@
         "prefix": "fcs",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   First Command Sharon IRA statement",
-                 "  assets:investments:First_Command_Sharon_IRA",
-                 "  income:investment_gains:First_Command_Joint  -${4:dividends}  ; dividends interest",
-                 "  expenses:fees:investment                      ${5:fees}",
-                 "  income:unrealized_gains                       ${6:mktchg}  ; type:unrealize",
+                 "  assets:investments:First_Command_Sharon_IRA:holdings",
+                 "  assets:investments:First_Command_Sharon_IRA:fees              -${4:fees}",
+                 "  expenses:investments:First_Command_Sharon_IRA:fees             $4",
+                 "  income:investments:First_Command_Sharon_IRA:investment_gains  -${5:dividends}  ; dividends interest",
+                 "  income:investments:First_Command_Sharon_IRA:unrealized_gains  -${6:mktchg}  ; type:unrealize",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Sharon IRA"
@@ -101,9 +114,9 @@
         "prefix": "fcsnf",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   First Command Sharon IRA statement",
-                 "  assets:investments:First_Command_Sharon_IRA",
-                 "  income:investment_gains:First_Command_Joint  -${4:dividends}  ; dividends interest",
-                 "  income:unrealized_gains                       ${5:mktchg}  ; type:unrealize",
+                 "  assets:investments:First_Command_Sharon_IRA:holdings",
+                 "  income:investments:First_Command_Sharon_IRA:investment_gains  -${4:dividends}  ; dividends interest",
+                 "  income:investments:First_Command_Sharon_IRA:unrealized_gains  -${5:mktchg}  ; type:unrealize",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Sharon IRA without fees"
@@ -112,9 +125,9 @@
         "prefix": "tsp",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   Thrift Savings Plan statement",
-                 "  assets:investments:Thrift_Savings_Plan",
-                 "  income:investment_gains:Thrift_Savings_Plan  -${4:employer}  ; employer contribution",
-                 "  income:unrealized_gains                       ${5:mktchg}  ; type:unrealize",
+                 "  assets:investments:Thrift_Savings_Plan:holdings",
+                 "  income:investments:Thrift_Savings_Plan:investment_gains  -${4:employer}  ; employer contribution",
+                 "  income:investments:Thrift_Savings_Plan:unrealized_gains  -${5:mktchg}  ; type:unrealize",
                  "$0"
                 ],
         "description": "Enter a statement for Thrift Savings Plan"
@@ -123,10 +136,11 @@
         "prefix": "cox",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   Vanguard Cox statement",
-                 "  assets:investments:Vanguard_Cox",
-                 "  expenses:fees:investment                  ${4:fees}",
-                 "  income:investment_gains:Vanguard_Cox     -${5:dividends}  ; dividends interest",
-                 "  income:unrealized_gains                   ${6:mktchg}  ; type:unrealize",
+                 "  assets:investments:Vanguard_Cox:holdings",
+                 "  income:investments:Vanguard_Cox:unrealized_gains  -${4:mktchg}  ; type:unrealize",
+                 "  income:investments:Vanguard_Cox:investment_gains  -${5:dividends}  ; dividends interest",
+                 "  assets:investments:Vanguard_Cox:fees              -${6:fees}",
+                 "  expenses:investments:Vanguard_Cox:fees             $6",
                  "$0"
                 ],
         "description": "Enter a statement for Vanguard Cox IRA"
@@ -135,22 +149,44 @@
         "prefix": "lmssp",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   LM Salaried Savings Plan statement",
-                 "  assets:investments:LM_Salaried_Savings_Plan",
-                 "  expenses:fees:investment                  ${4:fees}",
-                 "  income:unrealized_gains                   ${5:mktchg}  ; type:unrealize",
+                 "  assets:investments:LM_Salaried_Savings_Plan:holdings",
+                 "  income:investments:LM_Salaried_Savings_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
+                 "  assets:investments:LM_Salaried_Savings_Plan:fees              -${5:fees}",
+                 "  expenses:investments:LM_Salaried_Savings_Plan:fees             $5",
                  "$0"
                 ],
         "description": "Enter a statement for LM Salaried Savings Plan"
+    },
+    "LM Salaried Savings Plan no fees": {
+        "prefix": "lmsspnf",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day} *   LM Salaried Savings Plan statement",
+                 "  assets:investments:LM_Salaried_Savings_Plan:holdings",
+                 "  income:investments:LM_Salaried_Savings_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
+                 "$0"
+                ],
+        "description": "Enter a statement for LM Salaried Savings Plan without fees"
     },
     "LM Capital Accumulation Plan": {
         "prefix": "lmcap",
         "body": ["",
                  "${1:year}-${2:month}-${3:day} *   LM Capital Accumulation Plan statement",
-                 "  assets:investments:LM_Capital_Accumulation_Plan",
-                 "  expenses:fees:investment                  ${4:fees}",
-                 "  income:unrealized_gains                   ${5:mktchg}  ; type:unrealize",
+                 "  assets:investments:LM_Capital_Accumulation_Plan:holdings",
+                 "  income:investments:LM_Capital_Accumulation_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
+                 "  assets:investments:LM_Capital_Accumulation_Plan:fees              -${5:fees}",
+                 "  expenses:investments:LM_Capital_Accumulation_Plan:fees             $5",
                  "$0"
                 ],
         "description": "Enter a statement for LM Capital Accumulation Plan"
+    },
+    "LM Capital Accumulation Plan no fees": {
+        "prefix": "lmcapnf",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day} *   LM Capital Accumulation Plan statement",
+                 "  assets:investments:LM_Capital_Accumulation_Plan:holdings",
+                 "  income:investments:LM_Capital_Accumulation_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
+                 "$0"
+                ],
+        "description": "Enter a statement for LM Capital Accumulation Plan without fees"
     }
 }
