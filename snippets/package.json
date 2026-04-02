@@ -1,13 +1,9 @@
 {
   "name": "personal-snippets",
   "contributes": {
-    "languages": [{
-        "id": "ledger",
-        "extensions": [ ".journal", ],
-    }],
-    "snippets": [
+    "snippets": [{
       { "language": "python", "path": "./python.json"},
       { "language": "ledger", "path": "./ledger.json"}
-    ]
+    }]
   }
 }
