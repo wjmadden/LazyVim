@@ -4,7 +4,7 @@
         "body": ["",
                  "${1:year}-${2:month}-${3:day}   (Direct Debit) Destiny II",
                  "  assets:investments:Fidelity_Warren_Roth_IRA  166.66",
-                 "  assets:banking:Wells_Fargo_Checking         -166.66",
+                 "  assets:banking:Wells_Fargo:checking         -166.66",
                  "$0"
                 ],
         "description": "Enter a withdrawal for Fidelity Roth IRA monthly investment"
@@ -18,7 +18,7 @@
     "Fidelity Reinvestment": {
         "prefix": "fdetr",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   Fidelity ${4:type} investment",
+                 "${1:year}-${2:month}-${3:day} *    Fidelity ${4:type} investment",
                  "  assets:investments:Fidelity_Warren_Roth_IRA:$1$2$3  ${5:shares} FDETX @@ ${6:amount}",
                  "  income:investments:Fidelity_Warren_Roth_IRA:investment_gains",
                  "$0"
@@ -40,11 +40,11 @@
         "description": "Enter a new price for Fidelity Roth IRA"
     },
     "First Command Joint Monthly": {
-        "prefix": "fdetm",
+        "prefix": "fcjm",
         "body": ["",
                  "${1:year}-${2:month}-${3:day}   (Direct Debit) First Command Joint",
-                 "  assets:investments:First_Command_Joint:holdings       350.00",
-                 "  assets:banking:Wells_Fargo_Checking                  -350.00",
+                 "  assets:investments:First_Command_Joint             350.00",
+                 "  assets:banking:Wells_Fargo:checking               -350.00",
                  "$0"
                 ],
         "description": "Enter a withdrawal for First Command Joint monthly investment"
@@ -52,12 +52,11 @@
     "First Command Joint": {
         "prefix": "fcj",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   First Command Joint statement",
-                 "  assets:investments:First_Command_Joint:holdings",
+                 "${1:year}-${2:month}-${3:day} *    First Command Joint statement",
+                 "  assets:investments:First_Command_Joint",
                  "  income:investments:First_Command_Joint:investment_gains  -${4:dividends}  ; dividends interest",
-                 "  assets:investments:First_Command_Joint:fees              -${5:fees}",
-                 "  expenses:investments:First_Command_Joint:fees             $5",
-                 "  income:investments:First_Command_Joint:unrealized_gains  -${6:mktchg}  ; type:unrealize",
+                 "  expenses:investments:First_Command_Joint:fees             ${5:fees}",
+                 "  equity:unrealized:First_Command_Joint                    ${6:-}${7:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Joint IRA"
@@ -65,10 +64,10 @@
     "First Command Joint no fees": {
         "prefix": "fcjnf",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   First Command Joint statement",
-                 "  assets:investments:First_Command_Joint:holdings",
+                 "${1:year}-${2:month}-${3:day} *    First Command Joint statement",
+                 "  assets:investments:First_Command_Joint",
                  "  income:investments:First_Command_Joint:investment_gains  -${4:dividends}  ; dividends interest",
-                 "  income:investments:First_Command_Joint:unrealized_gains  -${5:mktchg}  ; type:unrealize",
+                 "  equity:unrealized:First_Command_Joint                    ${5:-}${6:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Joint IRA without fees"
@@ -76,12 +75,11 @@
     "First Command Warren": {
         "prefix": "fcw",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   First Command Warren IRA statement",
-                 "  assets:investments:First_Command_Warren_IRA:holdings",
+                 "${1:year}-${2:month}-${3:day} *    First Command Warren IRA statement",
+                 "  assets:investments:First_Command_Warren_IRA",
                  "  income:investments:First_Command_Warren_IRA:investment_gains  -${4:dividends}  ; dividends interest",
-                 "  assets:investments:First_Command_Warren_IRA:fees              -${5:fees}",
-                 "  expenses:investments:First_Command_Warren_IRA:fees             $5",
-                 "  income:investments:First_Command_Warren_IRA:unrealized_gains  -${6:mktchg}  ; type:unrealize",
+                 "  expenses:investments:First_Command_Warren_IRA:fees             ${5:fees}",
+                 "  equity:unrealized:First_Command_Warren_IRA                    ${6:-}${7:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Warren IRA"
@@ -89,10 +87,10 @@
     "First Command Warren no fees": {
         "prefix": "fcwnf",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   First Command Warren IRA statement",
-                 "  assets:investments:First_Command_Warren_IRA:holdings",
+                 "${1:year}-${2:month}-${3:day} *    First Command Warren IRA statement",
+                 "  assets:investments:First_Command_Warren_IRA",
                  "  income:investments:First_Command_Warren_IRA:investment_gains  -${4:dividends}  ; dividends interest",
-                 "  income:investments:First_Command_Warren_IRA:unrealized_gains  -${5:mktchg}  ; type:unrealize",
+                 "  equity:unrealized:First_Command_Warren_IRA                    ${5:-}${6:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Warren IRA without fees"
@@ -100,12 +98,11 @@
     "First Command Sharon": {
         "prefix": "fcs",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   First Command Sharon IRA statement",
-                 "  assets:investments:First_Command_Sharon_IRA:holdings",
+                 "${1:year}-${2:month}-${3:day} *    First Command Sharon IRA statement",
+                 "  assets:investments:First_Command_Sharon_IRA",
                  "  income:investments:First_Command_Sharon_IRA:investment_gains  -${4:dividends}  ; dividends interest",
-                 "  assets:investments:First_Command_Sharon_IRA:fees              -${5:fees}",
-                 "  expenses:investments:First_Command_Sharon_IRA:fees             $5",
-                 "  income:investments:First_Command_Sharon_IRA:unrealized_gains  -${6:mktchg}  ; type:unrealize",
+                 "  expenses:investments:First_Command_Sharon_IRA:fees             ${5:fees}",
+                 "  equity:unrealized:First_Command_Sharon_IRA                    ${6:-}${7:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Sharon IRA"
@@ -113,10 +110,10 @@
     "First Command Sharon no fees": {
         "prefix": "fcsnf",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   First Command Sharon IRA statement",
-                 "  assets:investments:First_Command_Sharon_IRA:holdings",
+                 "${1:year}-${2:month}-${3:day} *    First Command Sharon IRA statement",
+                 "  assets:investments:First_Command_Sharon_IRA",
                  "  income:investments:First_Command_Sharon_IRA:investment_gains  -${4:dividends}  ; dividends interest",
-                 "  income:investments:First_Command_Sharon_IRA:unrealized_gains  -${5:mktchg}  ; type:unrealize",
+                 "  equity:unrealized:First_Command_Sharon_IRA                    ${5:-}${6:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for First Command Sharon IRA without fees"
@@ -124,10 +121,10 @@
     "Thrift Savings Plan": {
         "prefix": "tsp",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   Thrift Savings Plan statement",
-                 "  assets:investments:Thrift_Savings_Plan:holdings",
+                 "${1:year}-${2:month}-${3:day} *    Thrift Savings Plan statement",
+                 "  assets:investments:Thrift_Savings_Plan",
                  "  income:investments:Thrift_Savings_Plan:investment_gains  -${4:employer}  ; employer contribution",
-                 "  income:investments:Thrift_Savings_Plan:unrealized_gains  -${5:mktchg}  ; type:unrealize",
+                 "  equity:unrealized:Thrift_Savings_Plan                    -${5:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for Thrift Savings Plan"
@@ -135,12 +132,11 @@
     "Vanguard Cox": {
         "prefix": "cox",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   Vanguard Cox statement",
-                 "  assets:investments:Vanguard_Cox:holdings",
-                 "  income:investments:Vanguard_Cox:unrealized_gains  -${4:mktchg}  ; type:unrealize",
-                 "  income:investments:Vanguard_Cox:investment_gains  -${5:dividends}  ; dividends interest",
-                 "  assets:investments:Vanguard_Cox:fees              -${6:fees}",
-                 "  expenses:investments:Vanguard_Cox:fees             $6",
+                 "${1:year}-${2:month}-${3:day} *    Vanguard Cox statement",
+                 "  assets:investments:Vanguard_Cox",
+                 "  equity:unrealized:Vanguard_Cox                     ${4:-}${5:mktchg}  ; type:unrealized",
+                 "  income:investments:Vanguard_Cox:investment_gains   -${6:dividends}  ; dividends interest",
+                 "  expenses:investments:Vanguard_Cox:fees              ${7:fees}",
                  "$0"
                 ],
         "description": "Enter a statement for Vanguard Cox IRA"
@@ -148,11 +144,10 @@
     "LM Salaried Savings Plan": {
         "prefix": "lmssp",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   LM Salaried Savings Plan statement",
-                 "  assets:investments:LM_Salaried_Savings_Plan:holdings",
-                 "  income:investments:LM_Salaried_Savings_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
-                 "  assets:investments:LM_Salaried_Savings_Plan:fees              -${5:fees}",
-                 "  expenses:investments:LM_Salaried_Savings_Plan:fees             $5",
+                 "${1:year}-${2:month}-${3:day} *    LM Salaried Savings Plan statement",
+                 "  assets:investments:LM_Salaried_Savings_Plan",
+                 "  equity:unrealized:LM_Salaried_Savings_Plan         ${4:-}${5:mktchg}  ; type:unrealized",
+                 "  expenses:investments:LM_Salaried_Savings_Plan:fees  ${6:fees}",
                  "$0"
                 ],
         "description": "Enter a statement for LM Salaried Savings Plan"
@@ -160,9 +155,9 @@
     "LM Salaried Savings Plan no fees": {
         "prefix": "lmsspnf",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   LM Salaried Savings Plan statement",
-                 "  assets:investments:LM_Salaried_Savings_Plan:holdings",
-                 "  income:investments:LM_Salaried_Savings_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
+                 "${1:year}-${2:month}-${3:day} *    LM Salaried Savings Plan statement",
+                 "  assets:investments:LM_Salaried_Savings_Plan",
+                 "  equity:unrealized:LM_Salaried_Savings_Plan  ${4:-}${5:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for LM Salaried Savings Plan without fees"
@@ -170,11 +165,10 @@
     "LM Capital Accumulation Plan": {
         "prefix": "lmcap",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   LM Capital Accumulation Plan statement",
-                 "  assets:investments:LM_Capital_Accumulation_Plan:holdings",
-                 "  income:investments:LM_Capital_Accumulation_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
-                 "  assets:investments:LM_Capital_Accumulation_Plan:fees              -${5:fees}",
-                 "  expenses:investments:LM_Capital_Accumulation_Plan:fees             $5",
+                 "${1:year}-${2:month}-${3:day} *    LM Capital Accumulation Plan statement",
+                 "  assets:investments:LM_Capital_Accumulation_Plan",
+                 "  equity:unrealized:LM_Capital_Accumulation_Plan         ${4:-}${5:mktchg}  ; type:unrealized",
+                 "  expenses:investments:LM_Capital_Accumulation_Plan:fees  ${6:fees}",
                  "$0"
                 ],
         "description": "Enter a statement for LM Capital Accumulation Plan"
@@ -182,11 +176,88 @@
     "LM Capital Accumulation Plan no fees": {
         "prefix": "lmcapnf",
         "body": ["",
-                 "${1:year}-${2:month}-${3:day} *   LM Capital Accumulation Plan statement",
-                 "  assets:investments:LM_Capital_Accumulation_Plan:holdings",
-                 "  income:investments:LM_Capital_Accumulation_Plan:unrealized_gains  -${4:mktchg}  ; type:unrealize",
+                 "${1:year}-${2:month}-${3:day} *    LM Capital Accumulation Plan statement",
+                 "  assets:investments:LM_Capital_Accumulation_Plan",
+                 "  equity:unrealized:LM_Capital_Accumulation_Plan  ${4:-}${5:mktchg}  ; type:unrealized",
                  "$0"
                 ],
         "description": "Enter a statement for LM Capital Accumulation Plan without fees"
+    },
+    "USAA Visa charge": {
+        "prefix": "visac",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}      ${4:payee}",
+                 "  liabilities:USAA_Visa  -${5:amount}",
+                 "  $0"
+                ],
+        "description": "Enter a charge against the USAA Visa card"
+    },
+    "USAA Visa refund": {
+        "prefix": "visar",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}      ${4:refunder}",
+                 "  liabilities:USAA_Visa  ${5:amount}",
+                 "  $0"
+                ],
+        "description": "Enter a refund to the USAA Visa card"
+    },
+    "USAA Visa payment": {
+        "prefix": "visap",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}   (Direct Debit) USAA",
+                 "  liabilities:USAA_Visa                ${4:amount}",
+                 "  assets:banking:Wells_Fargo:checking  -$4",
+                 "$0"
+                ],
+        "description": "Enter a payment to the USAA Visa card"
+    },
+    "Discover charge": {
+        "prefix": "discc",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}      ${4:payee}",
+                 "  liabilities:Discover  -${5:amount}",
+                 "  $0"
+                ],
+        "description": "Enter a charge against the Discover card"
+    },
+    "Discover refund": {
+        "prefix": "discr",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}      ${4:refunder}",
+                 "  liabilities:Discover  ${5:amount}",
+                 "  $0"
+                ],
+        "description": "Enter a refund to the Discover card"
+    },
+    "Discover payment": {
+        "prefix": "discp",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}   (Direct Debit) Discover",
+                 "  liabilities:Discover                  ${4:amount}",
+                 "  assets:banking:Wells_Fargo:checking  -$4",
+                 "$0"
+                ],
+        "description": "Enter a payment to the Discover card"
+    },
+    "Air Force Deposit": {
+        "prefix": "afdep",
+        "body": ["",
+                 "${1:year}-${2:month}-${3:day}   (Deposit) US Air Force",
+                 "  assets:banking:Wells_Fargo:checking  ${4:amount}",
+                 "  expenses:taxes:federal                  -${5:amount}",
+                 "  expenses:taxes:social_security          -${6:amount}",
+                 "  expenses:taxes:medicare                 -${7:amount}",
+                 "  expenses:insurance:medical              -${8:amount}",
+                 "  expenses:insurance:dental               -${9:amount}",
+                 "  expenses:insurance:vision               -${10:amount}",
+                 "  expenses:insurance:life                 -${11:amount}",
+                 "  expenses:insurance:life_spouse          -${12:amount}",
+                 "  expenses:pension_fers                   -${13:amount}",
+                 "  assets:investments:Thrift_Savings_Plan  -${14:amount}",
+                 "  liabilities:fsa_advance                 -${15:amount}",
+                 "  income:airforce:salary                  -${16:amount}",
+                 "$0"
+                ],
+        "description": "Enter an Air Force paycheck"
     }
 }
