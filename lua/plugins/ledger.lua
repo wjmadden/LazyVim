@@ -7,7 +7,7 @@ return {
         "gl",
         "<cmd>call ledger#transaction_state_toggle(line('.'), ' !*')<CR>",
         buffer = true,
-        desc = "Find Plugin File",
+        desc = "Toggle transaction status",
       },
     },
     init = function()

@@ -172,6 +172,15 @@
         "prefix": "visac",
         "body": ["${1:year}-${2:month}-${3:day}      ${4:payee}",
                  "  liabilities:USAA_Visa  -${5:amount}",
+                 "  ${6:expense}  $5",
+                 "$0"
+                ],
+        "description": "Enter a charge against the USAA Visa card"
+    },
+    "USAA Visa charge (split)": {
+        "prefix": "visacs",
+        "body": ["${1:year}-${2:month}-${3:day}      ${4:payee}",
+                 "  liabilities:USAA_Visa  -${5:amount}",
                  "  $0"
                 ],
         "description": "Enter a charge against the USAA Visa card"
@@ -237,5 +246,14 @@
                  "$0"
                 ],
         "description": "Enter an Air Force paycheck"
+    },
+    "Molly fluids": {
+        "prefix": "molly",
+        "body": ["${1:year}-${2:month}-${3:day}      Pines West Animal Hospital",
+                 "  liabilities:USAA_Visa  -6.65",
+                 "  expenses:pets           6.65  ; Molly - fluids",
+                 "$0"
+                ],
+        "description": "Molly's fluids"
     }
 }
