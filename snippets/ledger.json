@@ -1,7 +1,7 @@
 {
     "Fidelity Monthly": {
         "prefix": "fdetm",
-        "body": ["${1:year}-${2:month}-${3:day}   (Direct Debit) Destiny II",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Direct Debit) Destiny II",
                  "  assets:investments:Fidelity_Warren_Roth_IRA  166.66",
                  "  assets:banking:Wells_Fargo:checking         -166.66",
                  "$0"
@@ -16,7 +16,7 @@
     },
     "Fidelity Reinvestment": {
         "prefix": "fdetr",
-        "body": ["${1:year}-${2:month}-${3:day} *    Fidelity ${4:type} investment",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    Fidelity ${4:type} investment",
                  "  assets:investments:Fidelity_Warren_Roth_IRA:$1$2$3  ${5:shares} FDETX @@ ${6:amount}",
                  "  income:investments:Fidelity_Warren_Roth_IRA:investment_gains",
                  "$0"
@@ -32,14 +32,14 @@
     },
     "Fidelity Price": {
         "prefix": "fdetp",
-        "body": ["P ${1:year}-${2:month}-${3:day} FDETX ${4:price}",
+        "body": ["P ${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} FDETX ${4:price}",
                  "$0"
                 ],
         "description": "Enter a new price for Fidelity Roth IRA"
     },
     "First Command Joint Monthly": {
         "prefix": "fcjm",
-        "body": ["${1:year}-${2:month}-${3:day}   (Direct Debit) First Command Joint",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Direct Debit) First Command Joint",
                  "  assets:investments:First_Command_Joint             350.00",
                  "  assets:banking:Wells_Fargo:checking               -350.00",
                  "$0"
@@ -48,7 +48,7 @@
     },
     "First Command Joint": {
         "prefix": "fcj",
-        "body": ["${1:year}-${2:month}-${3:day} *    First Command Joint statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    First Command Joint statement",
                  "  assets:investments:First_Command_Joint",
                  "  income:investments:First_Command_Joint:investment_gains  -${4:dividends}  ; dividends interest",
                  "  expenses:investments:First_Command_Joint:fees             ${5:fees}",
@@ -59,7 +59,7 @@
     },
     "First Command Joint no fees": {
         "prefix": "fcjnf",
-        "body": ["${1:year}-${2:month}-${3:day} *    First Command Joint statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    First Command Joint statement",
                  "  assets:investments:First_Command_Joint",
                  "  income:investments:First_Command_Joint:investment_gains  -${4:dividends}  ; dividends interest",
                  "  equity:unrealized:First_Command_Joint                    ${5:-}${6:mktchg}  ; type:unrealized",
@@ -69,7 +69,7 @@
     },
     "First Command Warren": {
         "prefix": "fcw",
-        "body": ["${1:year}-${2:month}-${3:day} *    First Command Warren IRA statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    First Command Warren IRA statement",
                  "  assets:investments:First_Command_Warren_IRA",
                  "  income:investments:First_Command_Warren_IRA:investment_gains  -${4:dividends}  ; dividends interest",
                  "  expenses:investments:First_Command_Warren_IRA:fees             ${5:fees}",
@@ -80,7 +80,7 @@
     },
     "First Command Warren no fees": {
         "prefix": "fcwnf",
-        "body": ["${1:year}-${2:month}-${3:day} *    First Command Warren IRA statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    First Command Warren IRA statement",
                  "  assets:investments:First_Command_Warren_IRA",
                  "  income:investments:First_Command_Warren_IRA:investment_gains  -${4:dividends}  ; dividends interest",
                  "  equity:unrealized:First_Command_Warren_IRA                    ${5:-}${6:mktchg}  ; type:unrealized",
@@ -90,7 +90,7 @@
     },
     "First Command Sharon": {
         "prefix": "fcs",
-        "body": ["${1:year}-${2:month}-${3:day} *    First Command Sharon IRA statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    First Command Sharon IRA statement",
                  "  assets:investments:First_Command_Sharon_IRA",
                  "  income:investments:First_Command_Sharon_IRA:investment_gains  -${4:dividends}  ; dividends interest",
                  "  expenses:investments:First_Command_Sharon_IRA:fees             ${5:fees}",
@@ -101,7 +101,7 @@
     },
     "First Command Sharon no fees": {
         "prefix": "fcsnf",
-        "body": ["${1:year}-${2:month}-${3:day} *    First Command Sharon IRA statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    First Command Sharon IRA statement",
                  "  assets:investments:First_Command_Sharon_IRA",
                  "  income:investments:First_Command_Sharon_IRA:investment_gains  -${4:dividends}  ; dividends interest",
                  "  equity:unrealized:First_Command_Sharon_IRA                    ${5:-}${6:mktchg}  ; type:unrealized",
@@ -111,7 +111,7 @@
     },
     "Thrift Savings Plan": {
         "prefix": "tsp",
-        "body": ["${1:year}-${2:month}-${3:day} *    Thrift Savings Plan statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    Thrift Savings Plan statement",
                  "  assets:investments:Thrift_Savings_Plan",
                  "  income:investments:Thrift_Savings_Plan:investment_gains  -${4:employer}  ; employer contribution",
                  "  equity:unrealized:Thrift_Savings_Plan                    -${5:mktchg}  ; type:unrealized",
@@ -121,7 +121,7 @@
     },
     "Vanguard Cox": {
         "prefix": "cox",
-        "body": ["${1:year}-${2:month}-${3:day} *    Vanguard Cox statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    Vanguard Cox statement",
                  "  assets:investments:Vanguard_Cox",
                  "  equity:unrealized:Vanguard_Cox                     ${4:-}${5:mktchg}  ; type:unrealized",
                  "  income:investments:Vanguard_Cox:investment_gains   -${6:dividends}  ; dividends interest",
@@ -132,7 +132,7 @@
     },
     "LM Salaried Savings Plan": {
         "prefix": "lmssp",
-        "body": ["${1:year}-${2:month}-${3:day} *    LM Salaried Savings Plan statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    LM Salaried Savings Plan statement",
                  "  assets:investments:LM_Salaried_Savings_Plan",
                  "  equity:unrealized:LM_Salaried_Savings_Plan         ${4:-}${5:mktchg}  ; type:unrealized",
                  "  expenses:investments:LM_Salaried_Savings_Plan:fees  ${6:fees}",
@@ -142,7 +142,7 @@
     },
     "LM Salaried Savings Plan no fees": {
         "prefix": "lmsspnf",
-        "body": ["${1:year}-${2:month}-${3:day} *    LM Salaried Savings Plan statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    LM Salaried Savings Plan statement",
                  "  assets:investments:LM_Salaried_Savings_Plan",
                  "  equity:unrealized:LM_Salaried_Savings_Plan  ${4:-}${5:mktchg}  ; type:unrealized",
                  "$0"
@@ -151,7 +151,7 @@
     },
     "LM Capital Accumulation Plan": {
         "prefix": "lmcap",
-        "body": ["${1:year}-${2:month}-${3:day} *    LM Capital Accumulation Plan statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    LM Capital Accumulation Plan statement",
                  "  assets:investments:LM_Capital_Accumulation_Plan",
                  "  equity:unrealized:LM_Capital_Accumulation_Plan         ${4:-}${5:mktchg}  ; type:unrealized",
                  "  expenses:investments:LM_Capital_Accumulation_Plan:fees  ${6:fees}",
@@ -161,7 +161,7 @@
     },
     "LM Capital Accumulation Plan no fees": {
         "prefix": "lmcapnf",
-        "body": ["${1:year}-${2:month}-${3:day} *    LM Capital Accumulation Plan statement",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} *    LM Capital Accumulation Plan statement",
                  "  assets:investments:LM_Capital_Accumulation_Plan",
                  "  equity:unrealized:LM_Capital_Accumulation_Plan  ${4:-}${5:mktchg}  ; type:unrealized",
                  "$0"
@@ -170,24 +170,24 @@
     },
     "USAA Visa charge": {
         "prefix": "visac",
-        "body": ["${1:year}-${2:month}-${3:day}      ${4:payee}",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      ${4:payee}",
                  "  liabilities:USAA_Visa  -${5:amount}",
                  "  ${6:expense}  $5",
                  "$0"
                 ],
-        "description": "Enter a charge against the USAA Visa card"
+        "description": "Enter a single category charge against the USAA Visa card"
     },
     "USAA Visa charge (split)": {
         "prefix": "visacs",
-        "body": ["${1:year}-${2:month}-${3:day}      ${4:payee}",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      ${4:payee}",
                  "  liabilities:USAA_Visa  -${5:amount}",
                  "  $0"
                 ],
-        "description": "Enter a charge against the USAA Visa card"
+        "description": "Enter a multi-category charge against the USAA Visa card"
     },
     "USAA Visa refund": {
         "prefix": "visar",
-        "body": ["${1:year}-${2:month}-${3:day}      ${4:refunder}",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      ${4:refunder}",
                  "  liabilities:USAA_Visa  ${5:amount}",
                  "  $0"
                 ],
@@ -195,7 +195,7 @@
     },
     "USAA Visa payment": {
         "prefix": "visap",
-        "body": ["${1:year}-${2:month}-${3:day}   (Direct Debit) USAA",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Direct Debit) USAA",
                  "  liabilities:USAA_Visa                ${4:amount}",
                  "  assets:banking:Wells_Fargo:checking  -$4",
                  "$0"
@@ -204,15 +204,24 @@
     },
     "Discover charge": {
         "prefix": "discc",
-        "body": ["${1:year}-${2:month}-${3:day}      ${4:payee}",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      ${4:payee}",
+                 "  liabilities:Discover  -${5:amount}",
+                 "  ${6:expense}  $5",
+                 "  $0"
+                ],
+        "description": "Enter a single category charge against the Discover card"
+    },
+    "Discover charge (split)": {
+        "prefix": "disccs",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      ${4:payee}",
                  "  liabilities:Discover  -${5:amount}",
                  "  $0"
                 ],
-        "description": "Enter a charge against the Discover card"
+        "description": "Enter a multi-category charge against the Discover card"
     },
     "Discover refund": {
         "prefix": "discr",
-        "body": ["${1:year}-${2:month}-${3:day}      ${4:refunder}",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      ${4:refunder}",
                  "  liabilities:Discover  ${5:amount}",
                  "  $0"
                 ],
@@ -220,7 +229,7 @@
     },
     "Discover payment": {
         "prefix": "discp",
-        "body": ["${1:year}-${2:month}-${3:day}   (Direct Debit) Discover",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Direct Debit) Discover",
                  "  liabilities:Discover                  ${4:amount}",
                  "  assets:banking:Wells_Fargo:checking  -$4",
                  "$0"
@@ -229,7 +238,7 @@
     },
     "Air Force Deposit": {
         "prefix": "afdep",
-        "body": ["${1:year}-${2:month}-${3:day}   (Deposit) US Air Force",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Deposit) US Air Force",
                  "  assets:banking:Wells_Fargo:checking  ${4:amount}",
                  "  expenses:taxes:federal                  -${5:amount}",
                  "  expenses:taxes:social_security          -${6:amount}",
@@ -249,11 +258,56 @@
     },
     "Molly fluids": {
         "prefix": "molly",
-        "body": ["${1:year}-${2:month}-${3:day}      Pines West Animal Hospital",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Pines West Animal Hospital",
                  "  liabilities:USAA_Visa  -6.65",
                  "  expenses:pets           6.65  ; Molly - fluids",
                  "$0"
                 ],
         "description": "Molly's fluids"
+    },
+    "Disney Plus": {
+        "prefix": "dsny",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Disney Plus",
+                 "  liabilities:Discover             -22.62",
+                 "  expenses:entertainment:streaming  22.62",
+                 "$0"
+                ],
+        "description": "Disney Plus"
+    },
+    "Earthlink": {
+        "prefix": "elink",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Earthlink",
+                 "  liabilities:Discover  -25.95",
+                 "  expenses:web_hosting   25.95",
+                 "$0"
+                ],
+        "description": "Earthlink"
+    },
+    "AT&T": {
+        "prefix": "att",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      AT&T",
+                 "  liabilities:Discover            -${4:amount}",
+                 "  expenses:utilities:cell_phones   $4",
+                 "$0"
+                ],
+        "description": "AT&T"
+    },
+    "Sunpass": {
+        "prefix": "sun",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Sunpass",
+                 "  liabilities:Discover  -95.00",
+                 "  expenses:auto:tolls    95.00",
+                 "$0"
+                ],
+        "description": "Sunpass"
+    },
+    "World of Warcraft": {
+        "prefix": "wow",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Blizzard Entertainment",
+                 "  liabilities:Discover    -77.94",
+                 "  expenses:computer:games  77.94",
+                 "$0"
+                ],
+        "description": "World of Warcraft subscription"
     }
 }
