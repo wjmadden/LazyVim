@@ -240,21 +240,29 @@
         "prefix": "afdep",
         "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Deposit) US Air Force",
                  "  assets:banking:Wells_Fargo:checking  ${4:amount}",
-                 "  expenses:taxes:federal                  -${5:amount}",
-                 "  expenses:taxes:social_security          -${6:amount}",
-                 "  expenses:taxes:medicare                 -${7:amount}",
-                 "  expenses:insurance:medical              -${8:amount}",
-                 "  expenses:insurance:dental               -${9:amount}",
-                 "  expenses:insurance:vision               -${10:amount}",
-                 "  expenses:insurance:life                 -${11:amount}",
-                 "  expenses:insurance:life_spouse          -${12:amount}",
-                 "  expenses:pension_fers                   -${13:amount}",
-                 "  assets:investments:Thrift_Savings_Plan  -${14:amount}",
-                 "  liabilities:fsa_advance                 -${15:amount}",
-                 "  income:airforce:salary                  -${16:amount}",
+                 "  expenses:taxes:federal                  ${5:amount}",
+                 "  expenses:taxes:social_security          ${6:amount}",
+                 "  expenses:taxes:medicare                 ${7:amount}",
+                 "  expenses:insurance:dental               ${8:amount}",
+                 "  expenses:insurance:vision               ${9:amount}",
+                 "  expenses:insurance:life                 ${10:amount}",
+                 "  expenses:insurance:life_spouse          ${11:amount}",
+                 "  expenses:pension_fers                   ${12:amount}",
+                 "  assets:investments:Thrift_Savings_Plan  ${13:amount}",
+                 "  liabilities:fsa_advance                 ${14:amount}",
+                 "  income:airforce:salary                  -${15:amount}",
                  "$0"
                 ],
         "description": "Enter an Air Force paycheck"
+    },
+    "Wells Fargo check": {
+        "prefix": "wfc",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (${4:checknum}) ${5:payee}",
+                 "  assets:banking:Wells_Fargo:checking  -${6:amount}",
+                 "  ${7:expense}  $6",
+                 "$0"
+                ],
+        "description": "Enter a Wells Fargo check"
     },
     "Molly fluids": {
         "prefix": "molly",
@@ -293,7 +301,7 @@
         "description": "AT&T"
     },
     "Sunpass": {
-        "prefix": "sun",
+        "prefix": "sunp",
         "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Sunpass",
                  "  liabilities:Discover  -95.00",
                  "  expenses:auto:tolls    95.00",
