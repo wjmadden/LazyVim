@@ -273,15 +273,15 @@
     "Porsche annuity deposit": {
         "prefix": "poran",
         "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Deposit) Porsche Annuity",
-                 "  assets:banking:Wells_Fargo:checking           ${4:amount}",
-                 "  income:Porsche_annuity                       -$4",
+                 "  assets:banking:Wells_Fargo:checking           110.28",
+                 "  income:Porsche_annuity                       -110.28",
                  "$0"
                 ],
         "description": "Enter a Porsche annuity deposit"
     },
     "Wells Fargo check": {
         "prefix": "wfc",
-        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (${4:checknum}) ${5:payee}",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} (${4:checknum}) ${5:payee}",
                  "  assets:banking:Wells_Fargo:checking  -${6:amount}",
                  "  ${7:expense}  $6",
                  "$0"
@@ -290,12 +290,57 @@
     },
     "Wells Fargo deposit": {
         "prefix": "wfd",
-        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Deposit) ${4:source}",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} (Deposit) ${4:source}",
                  "  assets:banking:Wells_Fargo:checking  ${5:amount}",
                  "  ${6:source}  -$5",
                  "$0"
                 ],
         "description": "Enter a Wells Fargo checking deposit"
+    },
+    "Wells Fargo checking interest": {
+        "prefix": "wfchi",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} (INT) Interest Earned",
+                 "  assets:banking:Wells_Fargo:checking  ${4:amount}",
+                 "  income:interest_earned:Wells_Fargo:checking   -$4",
+                 "$0"
+                ],
+        "description": "Enter Wells Fargo checking interest"
+    },
+    "Wells Fargo money market interest": {
+        "prefix": "wfmmi",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} (INT) Interest Earned",
+                 "  assets:banking:Wells_Fargo:money_market  ${4:amount}",
+                 "  income:interest_earned:Wells_Fargo:money_market   -$4",
+                 "$0"
+                ],
+        "description": "Enter Wells Fargo money market interest"
+    },
+    "Wells Fargo CD interest": {
+        "prefix": "wfcdi",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} (INT) Interest Earned",
+                 "  assets:banking:Wells_Fargo:cd  ${4:amount}",
+                 "  income:interest_earned:Wells_Fargo:cd   -$4",
+                 "$0"
+                ],
+        "description": "Enter Wells Fargo CD interest"
+    },
+    "Petty cash ATM withdrawal": {
+        "prefix": "atm",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (ATM) Cash withdrawal",
+                 "  assets:banking:Wells_Fargo:checking  -${4:amount}",
+                 "  expenses:petty_cash           $4",
+                 "$0"
+                ],
+        "description": "Enter an ATM withdrawal"
+    },
+    "Farm checking interest": {
+        "prefix": "fci",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE} (INT) Interest Earned",
+                 "  assets:banking:Farm_Checking  ${4:amount}",
+                 "  income:interest_earned:Farm_Checking   -$4",
+                 "$0"
+                ],
+        "description": "Enter Farm Checking interest"
     },
     "Old Line Life payment": {
         "prefix": "olli",
@@ -315,6 +360,15 @@
                 ],
         "description": "Enter an FPL payment"
     },
+    "Xfinity": {
+        "prefix": "xfin",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Direct Debit) Xfinity",
+                 "  assets:banking:Wells_Fargo:checking  -110.00",
+                 "  expenses:utilities:internet           110.00",
+                 "$0"
+                ],
+        "description": "Enter an Xfinity payment"
+    },
     "Water, Sewer, Trash": {
         "prefix": "wst",
         "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}   (Direct Debit) City of Pembroke Pines",
@@ -325,7 +379,7 @@
                  "  expenses:fees:franchise               ${8:amount}",
                  "$0"
                 ],
-        "description": "Enter an FPL payment"
+        "description": "Enter a water, sewer, and trash payment"
     },
     "Hummingbird payment": {
         "prefix": "hum",
@@ -381,6 +435,15 @@
                 ],
         "description": "Sunpass"
     },
+    "Original Pancake House": {
+        "prefix": "oph",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Original Pancake House",
+                 "  liabilities:USAA_Visa  -24.38",
+                 "  expenses:dining_out     24.38",
+                 "$0"
+                ],
+        "description": "Original Pancake House"
+    },
     "World of Warcraft": {
         "prefix": "wow",
         "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      Blizzard Entertainment",
@@ -389,5 +452,14 @@
                  "$0"
                 ],
         "description": "World of Warcraft subscription"
+    },
+    "Opposing Bases": {
+        "prefix": "opb",
+        "body": ["${1:$CURRENT_YEAR}-${2:$CURRENT_MONTH}-${3:$CURRENT_DATE}      OpposingBases.com",
+                 "  liabilities:USAA_Visa    -4.00",
+                 "  expenses:entertainment:creator_support  4.00",
+                 "$0"
+                ],
+        "description": "Opposing Bases subscription"
     }
 }
